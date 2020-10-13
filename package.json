@@ -1,0 +1,14 @@
+{
+  "name": "jenkins-sonarqube",
+  "version": "1.0.0",
+  "description": "`docker-compose up -d`",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run dev:sonarqube && npm run dev:jenkins",
+    "dev:jenkins": "cd jenkins && docker-compose up -d",
+    "dev:sonarqube": "cd sonarqube && docker-compose up -d"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
