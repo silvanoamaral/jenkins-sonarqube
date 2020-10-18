@@ -1,6 +1,13 @@
 version: "3"
 
 services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    env_file: .env
+    volumes:
+      - ./webapp:/opt/webapp
   jenkins:
     image: jenkins:latest
     container_name: jenkins
