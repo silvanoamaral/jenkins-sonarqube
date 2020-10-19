@@ -1,14 +1,13 @@
 setup:
   addons:
-    - plan: heroku
- build:
-  docker:
-    web: ./Dockerfile
+    - plan: heroku-jenkins
+      as: JENKINS
   config:
-    REQUIREMENTS_FILENAME: heroku.yml
- release:
-  image: web
-  command:
-    - ./release.sh
- run:
-  web: uwsgi --http 0:$PORT --wsgi-file ./config/wsgi.py --master --processes 4 --threads 2
+    APP_NAME: heroku-dockerize
+build:
+  docker:
+    web: Dockerfile
+  config:
+    NODE_ENV: production
+run:
+  web: npm start
